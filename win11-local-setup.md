@@ -48,7 +48,7 @@ python -m venv venv
 ```bash
 pip install -r requirements.txt
 ```
-- If you want to save your current environment:
+- If you need to update `local-requirements.txt` with your current environment setup:
   ```bash
   pip freeze > local-requirements.txt
   ```
