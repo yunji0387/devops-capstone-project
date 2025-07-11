@@ -5,6 +5,9 @@
 
 This repository contains the starter code for the project in [**IBM-CD0285EN-SkillsNetwork DevOps Capstone Project**](https://www.coursera.org/learn/devops-capstone-project?specialization=devops-and-software-engineering) which is part of the [**IBM DevOps and Software Engineering Professional Certificate**](https://www.coursera.org/professional-certificates/devops-and-software-engineering)
 
+## Windows 11 Local Setup
+For detailed instructions, please refer to the [Windows 11 Local Setup Guide](win11-local-setup.md).
+
 ## Usage
 
 You should use this template to start your DevOps Capstone project. It contains all of the code that you will need to get started.
