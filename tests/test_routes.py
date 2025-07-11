@@ -20,10 +20,32 @@ DATABASE_URI = os.getenv(
 BASE_URL = "/accounts"
 
 
-class TestRoutes:
-    def test_something(self):
-        assert True
+class TestRoutes(TestCase):
+    """Route Tests"""
 
+    @classmethod
+    def setUpClass(cls):
+        """Run once before all tests"""
+        app.config["TESTING"] = True
+        app.config["DEBUG"] = False
+        app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
+        app.logger.setLevel(logging.CRITICAL)
+        init_db(app)
+
+    def setUp(self):
+        """Runs before each test"""
+        self.client = app.test_client()
+
+    def test_home_route(self):
+        """It should return the home page"""
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("Welcome to the Account API Service", response.get_data(as_text=True))
+
+    def test_invalid_route(self):
+        """It should return 404 for an invalid route"""
+        response = self.client.get("/invalid-route")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 ######################################################################
 #  T E S T   C A S E S
 ######################################################################
